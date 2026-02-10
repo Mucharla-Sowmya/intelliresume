@@ -1,0 +1,6 @@
+IntelliResume
+python -m venv venv
+venv\Scripts\activate
+pip install flask PyPDF2 python-docx sentence-transformers spacy scikit-learn nltk torch---->Install Core Libraries
+python -m spacy download en_core_web_sm--->Install Core Libraries(This model is needed for AI text processing.)
+

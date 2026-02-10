@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IntelliResume</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FULL PAGE */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 26px;
+}
+
+/* HERO FULL SCREEN */
+.hero {
+    height: calc(100vh - 70px);
+    width: 100%;
+
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+/* BUTTONS */
+.btn-custom {
+    padding: 14px 32px;
+    font-size: 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    transform: scale(1.05);
+}
+
+/* TEXT */
+h1 {
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="/">IntelliResume</a>
+
+    <div class="ms-auto">
+        <a href="/applicant" class="btn btn-primary me-2">Applicant</a>
+        <a href="/recruiter" class="btn btn-success">Recruiter</a>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<div class="hero">
+
+    <h1 class="mb-4">AI Resume Analyzer & ATS System</h1>
+
+    <p class="mb-5">
+        Intelligent platform that analyzes resumes, predicts job fit,
+        and helps recruiters find the best candidates using AI.
+    </p>
+
+    <div>
+        <a href="/applicant" class="btn btn-light btn-custom me-3">
+            Analyze Resume
+        </a>
+
+        <a href="/recruiter" class="btn btn-outline-light btn-custom">
+            Recruiter Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

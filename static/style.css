@@ -1,0 +1,43 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FULL PAGE */
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* HERO FULL SCREEN */
+.hero {
+    height: calc(100vh - 70px);
+    width: 100%;
+
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+/* BUTTONS */
+.btn-custom {
+    padding: 14px 30px;
+    border-radius: 40px;
+    font-size: 18px;
+}
