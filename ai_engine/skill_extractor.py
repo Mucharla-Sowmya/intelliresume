@@ -1,25 +1,36 @@
 import spacy
+from spacy.matcher import PhraseMatcher
 
 nlp = spacy.load("en_core_web_sm")
 
-# Known technical skills list
+# Expanded skill database
 SKILL_DB = [
     "python", "java", "sql", "html", "css", "javascript",
-    "react", "node.js", "django", "flask",
-    "machine learning", "tensorflow", "ai",
-    "power bi", "firebase", "git", "github",
-    "openai", "azure", "dbms"
+    "react", "reactjs", "node.js", "nodejs",
+    "django", "flask",
+    "machine learning", "deep learning",
+    "tensorflow", "pytorch", "ai",
+    "power bi", "tableau",
+    "firebase", "git", "github",
+    "openai", "azure", "aws",
+    "dbms", "mongodb", "postgresql"
 ]
+
+# Phrase matcher setup
+matcher = PhraseMatcher(nlp.vocab, attr="LOWER")
+patterns = [nlp.make_doc(skill) for skill in SKILL_DB]
+matcher.add("SKILLS", patterns)
 
 
 def extract_skills_ai(text):
 
-    text = text.lower()
+    doc = nlp(text)
 
-    detected_skills = []
+    detected_skills = set()
 
-    for skill in SKILL_DB:
-        if skill in text:
-            detected_skills.append(skill)
+    # Phrase matching
+    matches = matcher(doc)
+    for _, start, end in matches:
+        detected_skills.add(doc[start:end].text.lower())
 
-    return list(set(detected_skills))
+    return list(detected_skills)

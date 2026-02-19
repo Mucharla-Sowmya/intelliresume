@@ -37,7 +37,7 @@ margin-bottom:25px;
 
 /* Score numbers */
 .score{
-font-size:32px;
+font-size:34px;
 font-weight:700;
 }
 
@@ -57,6 +57,12 @@ font-weight:500;
 border-radius:40px;
 padding:10px 25px;
 font-weight:600;
+}
+
+/* AI Feedback box */
+.feedback-box{
+white-space:pre-line;
+line-height:1.6;
 }
 </style>
 </head>
@@ -107,9 +113,15 @@ font-weight:600;
 <!-- Skills -->
 <div class="card-custom">
 <h4>Skills Detected</h4>
+
+{% if skills %}
 {% for skill in skills %}
 <span class="skill-badge">{{ skill }}</span>
 {% endfor %}
+{% else %}
+<p>No skills detected.</p>
+{% endif %}
+
 </div>
 
 <!-- Courses -->
@@ -123,9 +135,12 @@ font-weight:600;
 {% endfor %}
 </ul>
 {% else %}
-<p>No missing skills detected. Resume looks strong!</p>
+<p>No missing skills detected. Resume looks strong 👍</p>
 {% endif %}
+
 </div>
+
+
 
 <div class="text-center">
 <a href="/" class="btn btn-light btn-custom">
