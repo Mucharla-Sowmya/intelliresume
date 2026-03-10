@@ -12,7 +12,7 @@ from recommender.courses import recommend_courses
 from ai_engine.ai_job_predictor import ai_predict_job_role
 
 app = Flask(__name__)
-app.secret_key = "intelliresume_secret"
+app.secret_key = "API_KEY"
 
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
