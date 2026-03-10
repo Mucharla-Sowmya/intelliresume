@@ -1,51 +1,44 @@
-import re
-
-
 def calculate_ats(semantic, resume_skills, job_skills, resume_text=""):
-
-    # ---------- CLEAN TEXT ----------
-    text = re.sub(r"\s+", " ", resume_text.lower())
 
     resume_skills = set(resume_skills)
     job_skills = set(job_skills)
 
-    # ---------- SKILL MATCH ----------
+    # -------- Skill Match --------
     if job_skills:
         skill_match = (len(resume_skills & job_skills) / len(job_skills)) * 100
     else:
-        skill_match = 50   # Neutral if no job skills
+        skill_match = 60
 
-    # ---------- SKILL RELEVANCE ----------
-    if resume_skills:
-        relevance = (len(resume_skills & job_skills) / len(resume_skills)) * 100
-    else:
-        relevance = 0
+    # -------- Resume Quality --------
+    text = resume_text.lower()
 
-    # ---------- RESUME QUALITY ----------
     quality_score = 0
 
-    quality_keywords = {
-        "project": 20,
-        "intern": 20,
-        "experience": 20,
-        "github": 10,
-        "portfolio": 10,
-        "certification": 10,
-        "course": 10
-    }
+    if "project" in text:
+        quality_score += 20
 
-    for keyword, weight in quality_keywords.items():
-        if keyword in text:
-            quality_score += weight
+    if "experience" in text or "intern" in text:
+        quality_score += 20
 
-    quality_score = min(quality_score, 100)
+    if "github" in text:
+        quality_score += 10
 
-    # ---------- FINAL ATS SCORE ----------
+    if "portfolio" in text:
+        quality_score += 10
+
+    if "certification" in text:
+        quality_score += 10
+
+    if "course" in text:
+        quality_score += 10
+
+    quality_score = min(quality_score, 60)
+
+    # -------- Final ATS --------
     ats_score = (
-        0.35 * semantic +
-        0.40 * skill_match +
-        0.15 * relevance +
-        0.10 * quality_score
+        0.4 * semantic +
+        0.4 * skill_match +
+        0.2 * quality_score
     )
 
-    return round(min(ats_score, 100), 2)
+    return round(min(ats_score,100),2)

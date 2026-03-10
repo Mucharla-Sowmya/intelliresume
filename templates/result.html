@@ -58,12 +58,6 @@ border-radius:40px;
 padding:10px 25px;
 font-weight:600;
 }
-
-/* AI Feedback box */
-.feedback-box{
-white-space:pre-line;
-line-height:1.6;
-}
 </style>
 </head>
 
@@ -115,11 +109,11 @@ line-height:1.6;
 <h4>Skills Detected</h4>
 
 {% if skills %}
-{% for skill in skills %}
-<span class="skill-badge">{{ skill }}</span>
-{% endfor %}
+    {% for skill in skills %}
+        <span class="skill-badge">{{ skill }}</span>
+    {% endfor %}
 {% else %}
-<p>No skills detected.</p>
+    <p style="color:#ffb3b3;">⚠️ No technical skills detected.</p>
 {% endif %}
 
 </div>
@@ -131,16 +125,21 @@ line-height:1.6;
 {% if courses %}
 <ul>
 {% for c in courses %}
+
+{% if c.skill and c.course %}
 <li>{{ c.skill }} → {{ c.course }}</li>
+{% else %}
+<li>{{ c }}</li>
+{% endif %}
+
 {% endfor %}
 </ul>
+
 {% else %}
-<p>No missing skills detected. Resume looks strong 👍</p>
+<p>No course recommendations available.</p>
 {% endif %}
 
 </div>
-
-
 
 <div class="text-center">
 <a href="/" class="btn btn-light btn-custom">

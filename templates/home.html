@@ -1,78 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>IntelliResume</title>
+<title>IntelliResume Dashboard</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#4e73df,#1cc88a);
+min-height:100vh;
+display:flex;
+flex-direction:column;
 }
 
-/* FULL PAGE */
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+.navbar{
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* NAVBAR */
-.navbar {
-    height: 70px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+.dashboard{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
-.navbar-brand {
-    font-weight: 700;
-    font-size: 26px;
+.card-box{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+border-radius:20px;
+padding:40px;
+color:white;
+box-shadow:0 25px 50px rgba(0,0,0,0.35);
+text-align:center;
 }
 
-/* HERO FULL SCREEN */
-.hero {
-    height: calc(100vh - 70px);
-    width: 100%;
-
-    background: linear-gradient(135deg, #4e73df, #1cc88a);
-    color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    text-align: center;
+.feature-card{
+background:rgba(255,255,255,0.2);
+border-radius:15px;
+padding:25px;
+margin:10px;
+transition:0.3s;
+cursor:pointer;
 }
 
-/* BUTTONS */
-.btn-custom {
-    padding: 14px 32px;
-    font-size: 18px;
-    border-radius: 40px;
-    font-weight: 600;
-    transition: 0.3s;
+.feature-card:hover{
+transform:translateY(-8px);
+background:rgba(255,255,255,0.3);
 }
 
-.btn-custom:hover {
-    transform: scale(1.05);
-}
-
-/* TEXT */
-h1 {
-    font-weight: 700;
-}
-
-p {
-    font-size: 18px;
+.btn-custom{
+border-radius:40px;
+padding:10px 25px;
+font-weight:600;
 }
 
 </style>
@@ -80,35 +62,59 @@ p {
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-dark px-4">
-    <a class="navbar-brand" href="/">IntelliResume</a>
+<span class="navbar-brand fw-bold">IntelliResume AI</span>
 
-    <div class="ms-auto">
-        <a href="/applicant" class="btn btn-primary me-2">Applicant</a>
-        <a href="/recruiter" class="btn btn-success">Recruiter</a>
-    </div>
+<div class="ms-auto">
+<a href="/" class="btn btn-outline-light me-2">Logout</a>
+</div>
 </nav>
 
-<!-- HERO SECTION -->
-<div class="hero">
+<div class="container dashboard">
 
-    <h1 class="mb-4">AI Resume Analyzer & ATS System</h1>
+<div class="card-box col-md-10">
 
-    <p class="mb-5">
-        Intelligent platform that analyzes resumes, predicts job fit,
-        and helps recruiters find the best candidates using AI.
-    </p>
+<h2 class="mb-4">🚀 IntelliResume AI Dashboard</h2>
 
-    <div>
-        <a href="/applicant" class="btn btn-light btn-custom me-3">
-            Analyze Resume
-        </a>
+<p class="mb-4">
+AI-powered Resume Analyzer and ATS Scoring System
+</p>
 
-        <a href="/recruiter" class="btn btn-outline-light btn-custom">
-            Recruiter Dashboard
-        </a>
-    </div>
+<div class="row">
+
+<div class="col-md-6">
+<a href="/applicant" style="text-decoration:none;color:white;">
+<div class="feature-card">
+<h4>👨‍💻 Applicant</h4>
+<p>Analyze your resume, calculate ATS score and get skill recommendations.</p>
+</div>
+</a>
+</div>
+
+<div class="col-md-6">
+<a href="/recruiter" style="text-decoration:none;color:white;">
+<div class="feature-card">
+<h4>🧑‍💼 Recruiter</h4>
+<p>Upload multiple resumes and rank candidates using AI similarity.</p>
+</div>
+</a>
+</div>
+
+</div>
+
+<div class="mt-4">
+
+<a href="/applicant" class="btn btn-primary btn-custom me-2">
+Analyze Resume
+</a>
+
+<a href="/recruiter" class="btn btn-success btn-custom">
+Recruiter Dashboard
+</a>
+
+</div>
+
+</div>
 
 </div>
 
